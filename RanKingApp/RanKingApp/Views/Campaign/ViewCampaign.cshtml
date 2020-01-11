@@ -1,0 +1,157 @@
+﻿@model List<RankMonster.Models.Campaign>
+@{
+    ViewBag.Title = "ViewCampaign";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-page">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card-box">
+                        <h4 class="header-title mb-4">Campaigns </h4>
+                    </div>
+
+                </div>
+            </div>
+            @{
+                int count = 0;
+                for (int y = count; y < Model.Count; y++)
+                {
+                    <div class="row">
+                        @for (int x = count; x < Model.Count; x++)
+                        {
+                            <div class="col-sm-4">
+                                @*<img src="~/assets/images/no-image-available.jpg" />*@
+                                <div class="card">
+                                    <img onerror="this.src='/assets/images/no-image-available.jpg'" class="card-img-top img-fluid" src="@Url.Content("~/" + Model[x].Image)" alt="Card image cap" style="height: 300px;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">@Model[x].Name</h5>
+                                        <p class="card-text">
+                                            @Model[x].Desc
+                                        </p>
+                                        <p class="card-text">
+                                            <small class="text-muted">Last updated @Model[x].DateTime ago</small>
+                                        </p>
+ 
+                                        <a href="javascript:location.href='@Url.Content("~/Testimonial/TestimonialPage?id="+Model[x].ID)'" class="card-link" _blank>Generate Link </a>
+                                        <a href="@Url.Content("~/Campaign/Edit/" + Model[x].ID)" class="card-link">Edit </a>
+                                        <a href="#" onclick="removeCampaign(@Model[x].ID);" class="card-link">Delete </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                            count++;
+                        }
+                    </div>
+                }
+
+            }
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script>
+    function GenerateLink(item,button) {
+        var url1 = window.location.href.split('/');
+        var baseUrl = url1[0] + '//' + url1[2] + '/' + url1[3];
+        $("loader").show();
+        $.ajax({
+            url: baseUrl+"/CreateCampaign/GenerateCampaign?id="+item,
+            type:"GET",
+            datatype:"JSON",
+            success:function(response){
+                console.log(response);
+                if(response == "True")
+                {
+                    $("loader").hide();
+                    $(button).hide();
+                    var a = $("<input>").attr("class", "form-control").val(baseUrl+"/Home/CurrentCampaign?id=" + item);
+                    $(button).replaceWith(a);
+                }
+                else
+                {
+                    alert("Error!!");
+                    $("loader").hide();
+                }
+            },
+            error:function(err)
+            {
+                $("loader").hide();
+                alert("Error");
+            }
+        });
+    }
+    function removeCampaign(id) {
+        var x =  confirm("Are You Sure You Want To remove Campaign.It will remove All related Reviews");
+        if (x)
+        {
+            location.href='@Url.Content("~/Campaign/RemoveCampaign?id=")' + id;
+        }
+
+    }
+</script>
+@{
+    if (@TempData["CampaignSave"] != null)
+    {
+
+        if (@TempData["CampaignSave"].ToString() == "success")
+        {
+            <script>
+                demo.showSwal("custom-update-campaign");
+            </script>
+        }
+        else
+        {
+            <script>
+                demo.showSwal("custom-failed-update-campaign");
+            </script>
+        }
+    }
+}
+
+<script>
+    function searchRecords() {
+        var type;
+        $('#datatables > tbody  > tr').each(function () {
+            $(this).hide();
+        });
+        if ($("#product").val() != "") {
+            type = "Product";
+            //$("#search_email").val();
+        }
+        if ($("#search_campaignname").val() != "") {
+            type = "Campaign";
+            //$("#search_campaignname").val();
+        }
+        $('#datatables > tbody  > tr').each(function () {
+            if (type == "Product") {
+                var search = $("#product").val();
+                var data = $(this).children('td')[2];
+                $(data).each(function () {
+                    if ($(this).text() == search) {
+                        $(this).parent().show();
+                    }
+                });
+            }
+            else if (type == "Campaign") {
+                var search = $("#search_campaignname").val();
+                var data = $(this).children('td')[1];
+                $(data).each(function () {
+                    if ($(this).text() == search) {
+                        $(this).parent().show();
+                    }
+                });
+            }
+
+        });
+    }
+
+
+</script>

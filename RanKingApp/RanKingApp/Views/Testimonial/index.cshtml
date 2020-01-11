@@ -1,0 +1,379 @@
+﻿@{
+    Layout = null;
+}
+@model RanKingApp.Models.TestimonialPageModel
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="zxx">
+<!--<![endif]-->
+<!-- Mirrored from rexbd.net/html/rupa/demo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Dec 2019 17:07:10 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>Testimonial</title>
+    <!--Favicon-->
+    <link rel="shortcut icon" href="@Url.Content("~/" + Model.campaign.Image)" type="image/png" />
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" type="text/css" href="~/assets/assetsLandingPage/css/bootstrap.css">
+    <!--Owl Carousel CSS-->
+    <link rel="stylesheet" type="text/css" href="~/assets/assetsLandingPage/css/owl.carousel.min.css">
+    <!--Icofont CSS-->
+    <link rel="stylesheet" type="text/css" href="~/assets/assetsLandingPage/css/icofont.css">
+    <!--Magnific PopUp CSS-->
+    <link rel="stylesheet" type="text/css" href="~/assets/assetsLandingPage/css/magnific-popup.css">
+    <!--Bootsnav CSS-->
+    <link rel="stylesheet" type="text/css" href="~/assets/assetsLandingPage/css/bootsnav.css">
+    <!--Main CSS-->
+    <link rel="stylesheet" type="text/css" href="~/assets/assetsLandingPage/css/style.css">
+    <!--Responsive CSS-->
+    <link rel="stylesheet" type="text/css" href="~/assets/assetsLandingPage/css/responsive.css">
+
+    <!--Modanizr JS-->
+    <script src="~/assets/assetsLandingPage/js/modernizr.custom.js"></script>
+    <link href="~/assets/ratingStars/style.css" rel="stylesheet" />
+
+
+
+    <style>
+        audio {
+            vertical-align: bottom;
+            width: 10em;
+        }
+
+        video {
+            max-width: 100%;
+            vertical-align: top;
+        }
+
+        .logo_size {
+            display: block;
+            max-width: 64px;
+            max-height: 64px;
+            width: auto;
+            height: auto;
+        }
+
+        .product_image_size {
+            display: block;
+            max-width: 64px;
+            max-height: 64px;
+            width: auto;
+            height: auto;
+        }
+    </style>
+
+    <script src="~/assets/assetsLandingPage/js/recordRTC.js"></script>
+    <script src="https://www.webrtc-experiment.com/DetectRTC.js"></script>
+    <script src="https://www.webrtc-experiment.com/gif-recorder.js"></script>
+    <script src="https://www.webrtc-experiment.com/getMediaElement.js"></script>
+
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!--Start Preloader-->
+    <form method="post" enctype="multipart/form-data" action="~/Testimonial/SaveTestimonial">
+        <div class="site-preloader">
+            <div class="spinner">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
+            </div>
+        </div>
+        <!--End Preloader-->
+        <!--Start Body Wrap-->
+        <div id="body-wrap">
+            <!--Start Header-->
+            <header id="header">
+                <nav class="navbar navbar-default bootsnav" data-spy="affix" data-offset-top="10">
+                    <!--Start Container-->
+                    <div class="container">
+                        <!-- Start Atribute Navigation -->
+                        <div class="attr-nav">
+                            <a href="#">Visit Sale Page</a>
+                        </div>
+                        <!-- End Atribute Navigation -->
+                        <!-- Start Header Navigation -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                                <i class="icofont icofont-navigation-menu"></i>
+                            </button>
+                            <a class="navbar-brand" href="index.html">
+                                <img onerror="this.src='/assets/images/no-image-available.jpg'" src="@Url.Content("~/" + Model.campaign.Image)"
+                                     class="logo logo_size" alt="">
+                            </a>
+                        </div>
+                        <!-- End Header Navigation -->
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="navbar-menu">
+                            <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
+                                <li class="active"><a href="#header">Home</a></li>
+                                <li><a href="#about-area">Bonuses</a></li>
+                                <li><a href="#testimonial-area">Testimonial</a></li>
+                                <li><a href="#info-area">Personal Information</a></li>
+                                <li><a href="#ratings-area">Ratings</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </div>
+                    <!--End Container-->
+                </nav>
+                <div class="clearfix"></div>
+            </header>
+            <!--End Header-->
+            <!--Start Welcome Area-->
+            <section id="welcome-area" class="bg-gray">
+                <!--Start Container-->
+                <div class="container">
+                    <!--Start Row-->
+                    <div class="row">
+                        <!--Start Welcome Image-->
+                        <div class="col-sm-6">
+                            <div class="welcome-img">
+                                <img onerror="this.src='/assets/images/no-image-available.jpg'"
+                                     src="@Url.Content("~/" + Model.campaign.Image)" class="img-responsive" alt="Image">
+                            </div>
+                        </div>
+                        <!--End Welcome Image-->
+                        <!--Start Welcome Content-->
+                        <div class="col-sm-6">
+                            <div class="wecome-content">
+                                <h1>@Model.campaign.Title</h1>
+                                <p>@Model.campaign.Desc</p>
+                                <a href="#">Visit Sale Page</a>
+                            </div>
+                        </div>
+                        <!--End Welcome Content-->
+                    </div>
+                    <!--End Row-->
+                </div>
+                <!--End Container-->
+            </section>
+            <!--End Welcome Area-->
+            <!--Start About Area-->
+            <!--End Video Area-->
+            <!--Start Core Features Section-->
+            <section id="about-area">
+                <!--Start Container-->
+                <div class="container">
+                    <!--Start Heading Row-->
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <div class="section-heading text-center">
+                                <h2>Bonuses</h2>
+                                @*<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut</p>*@
+                            </div>
+                        </div>
+                    </div>
+                    <!--End Heading Row-->
+                    <!--Start Row-->
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <!--Start Core Features Single-->
+                            @{
+
+                                foreach (var item in Model.campaignBonuses)
+                                {
+                                    if (Model.campaignBonuses.IndexOf(item) % 2 != 0)
+                                    {
+                                        <div class="core-features-single">
+                                            <!--Start Row-->
+                                            <div class="row">
+                                                <!--Start Core Feature Content-->
+                                                <div class="col-sm-6">
+                                                    <div class="core-feature-content arrow-right">
+                                                        <i class="icofont icofont-phone"></i>
+                                                        <h4>@item.b_name</h4>
+                                                        <p>@item.b_description</p>
+                                                    </div>
+                                                </div>
+                                                <!--End Core Feature Content-->
+                                                <!--Start Core Feature Image-->
+                                                <div class="col-sm-6">
+                                                    <div class="core-feature-img">
+                                                        <img onerror="this.src='/assets/images/no-image-available.jpg'"
+                                                             src="@Url.Content("~/" + item.b_image)"
+                                                             class="img-responsive" alt="Image">
+                                                    </div>
+                                                </div>
+                                                <!--End Core Feature Image-->
+                                            </div>
+                                            <!--End Row-->
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <!--End Core Features Single-->
+                                        <!--Start Core Features Single-->
+                                        <div class="core-features-single">
+                                            <!--Start Row-->
+                                            <div class="row">
+                                                <!--Start Core Feature Image-->
+                                                <div class="col-sm-6">
+                                                    <div class="core-feature-img">
+                                                        <img onerror="this.src='/assets/images/no-image-available.jpg'"
+                                                             src="@Url.Content("~/" + item.b_image)"
+                                                             class="img-responsive" alt="Image">
+                                                    </div>
+                                                </div>
+                                                <!--End Core Feature Image-->
+                                                <!--Start Core Feature Content-->
+                                                <div class="col-sm-6">
+                                                    <div class="core-feature-content arrow-left">
+                                                        <i class="icofont icofont-brand-android-robot"></i>
+                                                        <h4>@item.b_name</h4>
+                                                        <p>@item.b_description</p>
+                                                    </div>
+                                                </div>
+                                                <!--End Core Feature Content-->
+                                            </div>
+                                            <!--End Row-->
+                                        </div>
+                                    }
+                                }
+                            }
+
+                        </div>
+                    </div>
+                    <!--End Row-->
+                </div>
+                <!--End Container-->
+            </section>
+            <!--End Core Features Section-->
+            <!--Start Why Choose Area-->
+            <!--End Why Choose Area-->
+            <!--Start Product Area-->
+            <!--End Product Area-->
+            <!--Start Testimonial Area-->
+            <!--End Testimonial Area-->
+            <!--Start Faq Area-->
+            <!--End Faq Area-->
+            <!--Start Newsletter Area-->
+            <!--End Newsletter Area-->
+            <!--Start Contact Area-->
+            <section id="info-area">
+                <!--Start Container-->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="section-heading text-center">
+                                <h2>Your Personal Details</h2>
+                                <form>
+                                    <br />
+                                    <br />
+                                    <input style="border:1.5px solid" name="reviewer_fname" class="form-control" placeholder="First Name" required />
+
+                                    <br />
+                                    <br />
+                                    <input style="border:1.5px solid" name="reviewer_lname" class="form-control" placeholder="Last Name" required />
+                                    <br />
+                                    <br />
+
+                                    <input style="border:1.5px solid" name="reviewer_email" class="form-control" placeholder="Email Address" required />
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section id="testimonial-area">
+                <!--Start Container-->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="section-heading text-center">
+                                <h2>Record your testimonial</h2>
+                                <input id="video_blob_input" type="hidden" name="video_testimonial" />
+                                <input id="audio_blob_input" type="hidden" name="audio_testimonial" />
+                                <input type="hidden" name="userId" value="@Model.campaign.UserId" />
+                                <input type="hidden" name="campaign_name" value="@Model.campaign.Name" />
+                                <input type="hidden" name="camp_id" value="@Model.campaign.ID.ToString()" />
+                                <input type="hidden" name="rating" id="rating_input" />
+                            </div>
+                        </div>
+                    </div>
+                    <section class="experiment"> 
+                        <button id="start" type="button" class="btn btn-primary" disabled="">Start</button>
+                        <button id="stop" type="button" class="btn btn-danger" disabled="">Stop</button>
+                        <button style="display:none" id="get">Get</button>
+                        <button style="display:none" id="save">Save</button>
+                        <br /><br />
+                        <div id="videos-container">
+                            <div class="media-container" style="width: 100%;">
+                                <div class="media-controls" style="margin-left: -44px; opacity: 1;">
+                                </div><div style="background-color:black;">
+                                    <video style="height:500px" autoplay="" src="blob:null/c76cf5cd-5b4f-42ec-b16d-cc354786946f"></video>
+                                </div>
+                            </div>
+                        </div>
+                        <audio id="audio"></audio>
+                    </section>
+                </div>
+            </section>
+
+            <section id="ratings-area">
+                <!--Start Container-->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="section-heading text-center">
+                                <h2>Ratings</h2>
+                                <iframe style="width:75%;border:none" src="~/assets/ratingStars/index.html"></iframe>
+
+                                <br />
+                                <br />
+                                <label>  Comments(Optional)</label>
+                                <textarea name="reviewer_comments" style="border:1.5px solid" class="form-control" placeholder="Comments(Optional)"></textarea>
+                                <br />
+                                <br />
+                                <button type="submit" class="btn btn-primary">Submit Testimonial</button>
+                                <br />
+                                <br />
+                                @*<a href="~/assets/ratingStars/index.html">~/assets/ratingStars/index.html</a>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--End Contact Area-->
+            <!--Start Footer-->
+            <footer id="footer" class="bg-gray">
+                <div class="container">
+                    <p class="text-center">&copy; Copy 2019 All Rights Reserved</p>
+                </div>
+            </footer>
+            <!--End Footer-->
+        </div>
+    </form>
+    <!--End Body Wrap-->
+    <!--jQuery JS-->
+    <script src="~/assets/assetsLandingPage/js/jquery.min.js"></script>
+    <!--Bootstrap JS-->
+    <script src="~/assets/assetsLandingPage/js/bootstrap.min.js"></script>
+    <!--Owl Carousel JS-->
+    <script src="~/assets/assetsLandingPage/js/owl.carousel.min.js"></script>
+    <!--Magnific PopoUp JS-->
+    <script src="~/assets/assetsLandingPage/js/magnific-popup.min.js"></script>
+    <!--Bootsnav JS-->
+    <script src="~/assets/assetsLandingPage/js/bootsnav.js"></script>
+    <!--Main JS-->
+    <script src="~/assets/assetsLandingPage/js/custom.js"></script>
+    <script src="~/assets/assetsLandingPage/js/reccordRTC.js"></script>
+</body>
+
+
+<!-- Mirrored from rexbd.net/html/rupa/demo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Dec 2019 17:08:55 GMT -->
+</html>
