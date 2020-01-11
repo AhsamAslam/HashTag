@@ -1,0 +1,189 @@
+﻿@model List<RankMonster.Models.Campaign>
+@{
+    ViewBag.Title = "CreateVideoTestimonial";
+    
+
+}
+<script>
+    var rating = [];
+</script>
+
+<div class="content" style="background-color: #EEEEEE; width: 100%">
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Ajax/Campaign.js"></script>
+    @*<script>
+        $(document).ready(function () {
+
+            GetCampaign();
+
+        });
+    </script>*@
+    <div class="card">
+        <div class="card-header card-header-text" data-background-color="red">
+            <h4 class="card-title">Review Video Testimonial</h4>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="material-datatables">
+
+                    <div id="datatables_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4" style="float:right">
+                                
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <input type="text" class="form-control" placeholder="Campaign" id="search_campaignname"  />
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <button type="button" class="btn btn-danger btn-md" id="Search" onclick="searchRecords();">Search</button>
+                                </div>
+                            </div>
+
+                        </div>
+                        &nbsp;
+                        <table id="datatables" style="padding:2%" class="table table-striped table-no-bordered table-hover dataTable dtr-inline">
+                            <thead>
+                                <tr>
+                                    <th>Campaign Name</th>
+                                    <th> Title</th>
+                                    <th> Average Rating</th>
+                                    <th> Image</th>
+                                    <th> Datails</th>
+                                    @*<th> Status</th>*@
+                                    
+                                    @*<th></th>
+                                        <th></th>
+                                        <th></th>*@
+                                </tr>
+
+                            </thead>
+                            <tbody id="tbody">
+                                @{ 
+                                    var count = 0;
+                                    foreach (var item in Model)
+                                    {
+                                        count++;
+                                        <tr>
+                                            <td>@Html.Raw(HttpUtility.HtmlDecode(item.Name.ToString()))</td>
+                                            <td>@Html.Raw(HttpUtility.HtmlDecode(item.Title.ToString()))</td>
+                                           
+                                            @*<td>@Html.Raw(HttpUtility.HtmlDecode(item.TotalRating.ToString()))</td>*@
+                                            <td style="width:250px" class="text-center">
+                                                <div>
+                                                    <fieldset class="rating"  style="left:0;position:relative;float:left">
+                                                        <input type="radio"   id="Five-@count"   name="rating-@count" value="" class="input-star-rate"/><label style="font-size:20px" class="full" for="star5" title="Awesome - 5 stars"></label>
+                                                        <input type="radio"  id="FourPointFive-@count" name="rating-@count" value="" class="input-star-rate"/><label style="font-size:20px" class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                                                        <input type="radio"  id="Four-@count" name="rating-@count" value="" class="input-star-rate" /><label style="font-size:20px" class="full" for="star4" title="Pretty good - 4 stars"></label>
+                                                        <input type="radio"  id="ThreePointFive-@count" name="rating-@count" value="" class="input-star-rate" /><label style="font-size:20px" class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                                                        <input type="radio"  id="Three-@count" name="rating-@count" value="" class="input-star-rate" /><label style="font-size:20px" class="full" for="star3" title="Meh - 3 stars"></label>
+                                                        <input type="radio"  id="TwoPointFive-@count" name="rating-@count" value="" class="input-star-rate" /><label style="font-size:20px" class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                                                        <input type="radio"  id="Two-@count" name="rating-@count" value="" class="input-star-rate" /><label style="font-size:20px" class="full" for="star2" title="Kinda bad - 2 stars"></label>
+                                                        <input type="radio"  id="OnePointFive-@count"  name="rating-@count" value="" class="input-star-rate" /><label style="font-size:20px" class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                                                        <input type="radio"  id="One-@count" name="rating-@count" value="" class="input-star-rate" /><label style="font-size:20px" class="full" for="star1" title="Sucks big time - 1 star"></label>
+                                                        <input type="radio"  id="PointFive-@count" name="rating-@count" value="" class="input-star-rate" /><label style="font-size:20px" class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+                                                    </fieldset>
+                                                    <script>
+                                                        rating.push(@item.TotalRating);
+                                                    </script>
+                                                </div>
+                                            </td>
+                                            <td><img src="@Url.Content("~/User_Campaigns/"+Session["UserId"]+"/"+item.ID+"/"+item.Image)" style="width:50px;height:50px"/></td>
+                                            <td>
+                                                <a class="btn btn-info btn-md" href="@Url.Content("~/Home/ReviewTesimonials?campId="+@item.ID)"><i class="fa fa-eye"></i>Testimonial</a>
+                                            </td>
+                                            
+                                        </tr>
+                                        
+                                    }
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        for (var x = 0; x < rating.length; x++)
+        {
+            var n = ConvertString(rating[x]);
+            $("#" + n + "-" + parseInt(x + 1)).attr("checked", "true");
+            console.log(("#" + n + "-" + parseInt(x + 1)));
+        }
+    });
+
+ 
+    function ConvertString(num)
+    {
+        var x = "";
+        if (num == 5) {
+            x = "Five";
+        }
+        else if (num == 4.5) {
+            x = "FourPointFive";
+        }
+        else if (num == 4) {
+            x = "Four";
+        }
+        else if (num == 3.5) {
+            x = "ThreePointFive";
+        }
+        else if (num == 3) {
+            x = "Three";
+        }
+        else if (num == 2.5) {
+            x = "TwoPointFive";
+        }
+        else if (num == 2) {
+            x = "Two";
+        }
+        else if (num == 1.5) {
+            x = "OnePointFive";
+        }
+        else if (num == 1) {
+            x = "One";
+        }
+        else if (num == 0.5) {
+            x = "PointFive";
+        }
+        return x;
+    }
+       
+
+</script>
+<script>
+    function searchRecords() {
+        var type;
+        $('#datatables > tbody  > tr').each(function () {
+            $(this).hide();
+        });
+       
+        if ($("#search_campaignname").val() != "") {
+            type = "Campaign";
+                //$("#search_campaignname").val();
+        }
+        $('#datatables > tbody  > tr').each(function () {
+            if(type == "Campaign")
+            {
+                var search = $("#search_campaignname").val();
+                var data = $(this).children('td')[0];
+                
+                $(data).each(function () {
+                    if ($(this).text() == search) {
+                        $(this).parent().show();
+                    }
+                });
+            }
+
+        });
+    }
+
+
+</script>

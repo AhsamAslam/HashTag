@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Star rating</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="../assetsLandingPage/js/jquery.min.js"></script>
+</head>
+<body>
+
+
+
+    <div class="star-rating__stars" >
+        <input class="star-rating__input" type="radio" name="rating" value="1" id="review-1" />
+        <label class="star-rating__label" for="review-1" aria-label="One"></label>
+        <input class="star-rating__input" type="radio" name="rating" value="2" id="review-2" />
+        <label class="star-rating__label" for="review-2" aria-label="Two"></label>
+        <input class="star-rating__input" type="radio" name="rating" value="3" id="review-3" />
+        <label class="star-rating__label" for="review-3" aria-label="Three"></label>
+        <input class="star-rating__input" type="radio" name="rating" value="4" id="review-4" />
+        <label class="star-rating__label" for="review-4" aria-label="Four"></label>
+        <input class="star-rating__input" type="radio" name="rating" value="5" id="review-5" />
+        <label class="star-rating__label" for="review-5" aria-label="Five"></label>
+        <div class="star-rating__focus"></div>
+    </div>
+
+    <script>
+        $('.star-rating__input').click(function () {
+            parent.document.getElementById('rating_input').value = this.value;
+        })
+    </script>
+
+</body>
+</html>
