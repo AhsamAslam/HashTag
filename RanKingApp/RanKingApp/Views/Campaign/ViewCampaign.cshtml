@@ -35,7 +35,7 @@
                                             <small class="text-muted">Last updated @Model[x].DateTime ago</small>
                                         </p>
  
-                                        <a href="javascript:location.href='@Url.Content("~/Testimonial/TestimonialPage?id="+Model[x].ID)'" class="card-link" _blank>Generate Link </a>
+                                        <a href="@Url.Content("~/Testimonial/TestimonialPage?id="+Model[x].ID)" target="_blank" class="card-link" _blank>Generate Link </a>
                                         <a href="@Url.Content("~/Campaign/Edit/" + Model[x].ID)" class="card-link">Edit </a>
                                         <a href="#" onclick="removeCampaign(@Model[x].ID);" class="card-link">Delete </a>
                                     </div>

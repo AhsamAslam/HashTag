@@ -133,6 +133,8 @@
     <Content Include="assets\css\bootstrap-dark.min.css" />
     <Content Include="assets\css\bootstrap.min.css" />
     <Content Include="assets\css\icons.min.css" />
+    <Content Include="assets\RatingStars2\RatingStarshtml.html" />
+    <Content Include="assets\RatingStars2\StarRating.css" />
     <Content Include="assets\fonts\fa-brands-400.svg" />
     <Content Include="assets\fonts\fa-regular-400.svg" />
     <Content Include="assets\fonts\fa-solid-900.svg" />

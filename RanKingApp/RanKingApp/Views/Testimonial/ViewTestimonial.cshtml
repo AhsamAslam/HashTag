@@ -33,8 +33,9 @@
                 <small class="text-muted">Last updated @Model[x].reviewer_date ago</small>
             </p>
             <a href="@Url.Content("~/Testimonial/" + Model[x].t_id)" class="card-link">Share </a>
-            <a href="@Url.Content("~/Testimonial/" + Model[x].t_id)" class="card-link">Edit </a>
             <a href="#" onclick="(@Model[x].t_id,this);" class="card-link">Delete </a>
+
+            <iframe style="width:100%;border:none" src="~/assets/RatingStars2/RatingStarshtml.html" __idm_frm__="337"></iframe>
         </div>
     </div>
 </div>
