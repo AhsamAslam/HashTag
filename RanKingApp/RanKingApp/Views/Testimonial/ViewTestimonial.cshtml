@@ -25,15 +25,47 @@
     <div class="card">
         <img onerror="this.src='/assets/images/no-image-available.jpg'" class="card-img-top img-fluid" src="@Url.Content("~/" + Model[x].CampImage)" alt="Card image cap" style="height: 300px;">
         <div class="card-body">
-            <h5 class="card-title">@Model[x].reviewer_fname + " " + @Model[x].reviewer_lname</h5>
+            <h5 class="card-title">@Model[x].reviewer_fname @Model[x].reviewer_lname</h5>
             <p class="card-text">
                 @Model[x].reviewer_email
             </p>
             <p class="card-text">
                 <small class="text-muted">Last updated @Model[x].reviewer_date ago</small>
             </p>
-            <a href="@Url.Content("~/Testimonial/" + Model[x].t_id)" class="card-link">Share </a>
-            <a href="#" onclick="(@Model[x].t_id,this);" class="card-link">Delete </a>
+
+            <a href="@Url.Content("~/assets/SocialMediaButtons/SocialMediaButtons.html")" class="card-link">Share </a>
+
+            <div class="container">
+                <!-- Button to Open the Modal -->
+                <a href="" data-toggle="modal" data-target="#myModal">View</a>
+
+                <!-- The Modal -->
+                <div class="modal" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Modal Heading</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                Modal body..
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @*<a href="@Url.Content("~/")" class="card-link">View </a>*@
+            <a href="#" onclick="removeTestimonial(@Model[x].t_id,this);" class="card-link">Delete </a>
 
             <iframe style="width:100%;border:none" src="~/assets/RatingStars2/RatingStarshtml.html" __idm_frm__="337"></iframe>
         </div>
@@ -81,7 +113,7 @@ count++;
         var x = confirm("Are You Sure You Want To remove Testimonial.It will remove All related Reviews");
         if (x) {
             $.ajax({
-                url: baseUrl + "~/Testimonial/removeTestimonial?id=" + id + "&request=Testimonial",
+                url: baseUrl + "/Testimonial/removeTestimonial?id=" + id ,
                 type: "GET",
                 datatype: "JSON",
                 success: function (response) {
