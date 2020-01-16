@@ -200,7 +200,5 @@ namespace RankMonster.Controllers
             int x = obj.deleteCampaign(int.Parse(Session["UserId"].ToString()), id);
             return RedirectToAction("ViewCampaign");
         }
-
-
     }
 }
