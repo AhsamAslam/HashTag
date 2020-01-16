@@ -6148,7 +6148,7 @@ function WebAssemblyRecorder(stream, config) {
      * This method resets currently recorded data.
      * @method
      * @memberof WebAssemblyRecorder
-     * @example
+     * @example0
      * recorder.clearRecordedData();
      */
     this.clearRecordedData = function () {

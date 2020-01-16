@@ -118,7 +118,10 @@ namespace RankMonster.Controllers
         }
 
         [HttpGet]
-        public ActionResult removeTestimonial(string id)        {            DAL dAL = new DAL();            int x = dAL.DeleteTestimonial(Convert.ToInt32(id), Session["UserId"].ToString());
+        public ActionResult removeTestimonial(string id)
+        {
+            DAL dAL = new DAL();
+            int x = dAL.DeleteTestimonial(Convert.ToInt32(id), Session["UserId"].ToString());
             if (x > 1)
             {
                 return new JsonResult() { Data = "Success" };

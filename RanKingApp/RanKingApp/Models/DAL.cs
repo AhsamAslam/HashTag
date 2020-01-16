@@ -468,13 +468,11 @@ namespace RankMonster.Models
 
             return (x);
         }
-        public int DeleteTestimonial(int id,string userId)
+        public int DeleteTestimonial(int id)
         {
-            
             object[] param = new object[1];
             param.SetValue(id, 0);
-        //    param.SetValue(userId, 1);
-            //param.SetValue(Session["UserId"].toString())
+
             int x = SqlHelper.ExecuteNonQuery(ConfigurationManager.AppSettings["connectionString"].ToString(), "SP_DeleteTestimonial", param);
             return x;
         }

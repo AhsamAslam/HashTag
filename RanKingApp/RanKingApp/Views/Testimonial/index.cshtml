@@ -302,23 +302,36 @@
                                 <input type="hidden" name="campaign_name" value="@Model.campaign.Name" />
                                 <input type="hidden" name="camp_id" value="@Model.campaign.ID.ToString()" />
                                 <input type="hidden" name="rating" id="rating_input" />
+                                <input type="hidden" required name="videoBase64Encrypt" id="video_url"/>
                             </div>
                         </div>
                     </div>
-                    <section class="experiment"> 
-                        <button id="start" type="button" class="btn btn-primary" disabled="">Start</button>
-                        <button id="stop" type="button" class="btn btn-danger" disabled="">Stop</button>
+                    <section class="experiment">
+
+                        @*<button id="start" type="button" class="btn btn-primary" disabled="">Start</button>
+                            <button id="stop" type="button" class="btn btn-danger" disabled="">Stop</button>*@
+                        <p>
+                            <button type="button" id="btnStart">START RECORDING</button><br />
+                            <button type="button" id="btnStop">STOP RECORDING</button>
+                        </p>
+
+                       <video controls></video>
+                       <button type="button" onclick="ShowVd()" > Show recorded video </button>
+                                 <div id="hide" style="display:none">
+                                 <video id="vid2" controls></video>
+                                 </div>
                         <button style="display:none" id="get">Get</button>
                         <button style="display:none" id="save">Save</button>
                         <br /><br />
-                        <div id="videos-container">
+
+                        @*@<div id="videos-container">
                             <div class="media-container" style="width: 100%;">
                                 <div class="media-controls" style="margin-left: -44px; opacity: 1;">
                                 </div><div style="background-color:black;">
                                     <video style="height:500px" autoplay="" src="blob:null/c76cf5cd-5b4f-42ec-b16d-cc354786946f"></video>
                                 </div>
                             </div>
-                        </div>
+                        </div>*@
                         <audio id="audio"></audio>
                     </section>
                 </div>
@@ -339,7 +352,7 @@
                                 <textarea name="reviewer_comments" style="border:1.5px solid" class="form-control" placeholder="Comments(Optional)"></textarea>
                                 <br />
                                 <br />
-                                <button type="submit" class="btn btn-primary">Submit Testimonial</button>
+                               <button type="submit" class="btn btn-primary" >Submit Testimonial</button>
                                 <br />
                                 <br />
                                 @*<a href="~/assets/ratingStars/index.html">~/assets/ratingStars/index.html</a>*@
@@ -372,6 +385,123 @@
     <!--Main JS-->
     <script src="~/assets/assetsLandingPage/js/custom.js"></script>
     <script src="~/assets/assetsLandingPage/js/reccordRTC.js"></script>
+    <script>
+
+        let constraintObj = {
+            audio: false,
+            video: {
+                facingMode: "user",
+                width: { min: 640, ideal: 1280, max: 1920 },
+                height: { min: 480, ideal: 720, max: 1080 }
+            }
+        };
+        // width: 1280, height: 720  -- preference only
+        // facingMode: {exact: "user"}
+        // facingMode: "environment"
+
+        //handle older browsers that might implement getUserMedia in some way
+        if (navigator.mediaDevices === undefined) {
+            navigator.mediaDevices = {};
+            navigator.mediaDevices.getUserMedia = function (constraintObj) {
+                let getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+                if (!getUserMedia) {
+                    return Promise.reject(new Error('getUserMedia is not implemented in this browser'));
+                }
+                return new Promise(function (resolve, reject) {
+                    getUserMedia.call(navigator, constraintObj, resolve, reject);
+                });
+            }
+        } else {
+            navigator.mediaDevices.enumerateDevices()
+                .then(devices => {
+                    devices.forEach(device => {
+                        console.log(device.kind.toUpperCase(), device.label);
+                        //, device.deviceId
+                    })
+                })
+                .catch(err => {
+                    console.log(err.name, err.message);
+                })
+        }
+
+        navigator.mediaDevices.getUserMedia(constraintObj)
+            .then(function (mediaStreamObj) {
+                //connect the media stream to the first video element
+                let video = document.querySelector('video');
+                if ("srcObject" in video) {
+                  
+                    video.srcObject = mediaStreamObj;
+                } else {
+                    //old version
+
+                    video.src = window.URL.createObjectURL(mediaStreamObj);
+                  
+                }
+
+                video.onloadedmetadata = function (ev) {
+                    //show in the video element what is being captured by the webcam
+                    video.play();                                                                 
+                };
+
+                //add listeners for saving video/audio
+                let start = document.getElementById('btnStart');
+                let stop = document.getElementById('btnStop');
+                let vidSave = document.getElementById('vid2');
+                let mediaRecorder = new MediaRecorder(mediaStreamObj);
+                
+                let chunks = [];
+
+                start.addEventListener('click', (ev) => {
+                    mediaRecorder.start();
+                    console.log(mediaRecorder.state);
+                })
+                stop.addEventListener('click', (ev) => {
+                    mediaRecorder.stop();
+                    console.log(mediaRecorder);
+                    console.log(mediaRecorder.state);
+                });
+                mediaRecorder.ondataavailable = function (ev) {
+                    chunks.push(ev.data);
+                }
+                mediaRecorder.onstop = (ev) => {
+                    let blob = new Blob(chunks, { 'type': 'video/mp4;' });
+                    chunks = [];
+                    let videoURL = window.URL.createObjectURL(blob);
+                    vidSave.src = videoURL;
+
+                    var reader = new FileReader();
+                    reader.readAsDataURL(blob);
+                    reader.onloadend = function () {
+                        var base64data = reader.result;
+                        var encryptedBase64 = encodeURIComponent(base64data);
+                        document.getElementById('video_url').value = encryptedBase64;
+                    }
+                }
+            })
+            .catch(function (err) {
+                console.log(err.name, err.message);
+            });
+
+            /*********************************
+            getUserMedia returns a Promise
+            resolve - returns a MediaStream Object
+            reject returns one of the following errors
+            AbortError - generic unknown cause
+            NotAllowedError (SecurityError) - user rejected permissions
+            NotFoundError - missing media track
+            NotReadableError - user permissions given but hardware/OS error
+            OverconstrainedError - constraint video settings preventing
+            TypeError - audio: false, video: false
+            *********************************/
+        function ShowVd() {
+            var x = document.getElementById("hide");
+            if (x.style.display == "none") {
+                x.style.display = "block";
+            } else
+                x.style.display == "none";
+        }
+
+    </script>
 </body>
 
 
