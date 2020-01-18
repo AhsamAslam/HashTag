@@ -3,6 +3,132 @@
     ViewBag.Title = "ViewTestimonials";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+    .fa {
+        padding: 20px;
+        font-size: 30px;
+        width: 30px;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 2px;
+        border-radius: 50%;
+    }
+
+        .fa:hover {
+            opacity: 0.7;
+        }
+
+    .fa-facebook {
+        background: #3B5998;
+        color: white;
+    }
+
+    .fa-twitter {
+        background: #55ACEE;
+        color: white;
+    }
+
+    .fa-google {
+        background: #dd4b39;
+        color: white;
+    }
+
+    .fa-linkedin {
+        background: #007bb5;
+        color: white;
+    }
+
+    .fa-youtube {
+        background: #bb0000;
+        color: white;
+    }
+
+    .fa-instagram {
+        background: #125688;
+        color: white;
+    }
+
+    .fa-pinterest {
+        background: #cb2027;
+        color: white;
+    }
+
+    .fa-snapchat-ghost {
+        background: #fffc00;
+        color: white;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    }
+
+    .fa-skype {
+        background: #00aff0;
+        color: white;
+    }
+
+    .fa-android {
+        background: #a4c639;
+        color: white;
+    }
+
+    .fa-dribbble {
+        background: #ea4c89;
+        color: white;
+    }
+
+    .fa-vimeo {
+        background: #45bbff;
+        color: white;
+    }
+
+    .fa-tumblr {
+        background: #2c4762;
+        color: white;
+    }
+
+    .fa-vine {
+        background: #00b489;
+        color: white;
+    }
+
+    .fa-foursquare {
+        background: #45bbff;
+        color: white;
+    }
+
+    .fa-stumbleupon {
+        background: #eb4924;
+        color: white;
+    }
+
+    .fa-flickr {
+        background: #f40083;
+        color: white;
+    }
+
+    .fa-yahoo {
+        background: #430297;
+        color: white;
+    }
+
+    .fa-soundcloud {
+        background: #ff5500;
+        color: white;
+    }
+
+    .fa-reddit {
+        background: #ff5700;
+        color: white;
+    }
+
+    .fa-rss {
+        background: #ff6600;
+        color: white;
+    }
+</style>
+
+
+
 <div class="content-page">
     <div class="content">
         <div class="container-fluid">
@@ -17,93 +143,98 @@
                 int count = 0;
                 for (int y = count; y < Model.Count; y++)
                 {
-    <div class="row">
-        @for (int x = count; x < Model.Count; x++)
-        {
-<div class="col-sm-4">
-    @*<img src="~/assets/images/no-image-available.jpg" />*@
-    <div class="card">
-        <img onerror="this.src='/assets/images/no-image-available.jpg'" class="card-img-top img-fluid" src="@Url.Content("~/" + Model[x].CampImage)" alt="Card image cap" style="height: 300px;">
-        <div class="card-body">
-            <h5 class="card-title">@Model[x].reviewer_fname @Model[x].reviewer_lname</h5>
-            <p class="card-text">
-                @Model[x].reviewer_email
-            </p>
-            <p class="card-text">
-                <small class="text-muted">Last updated @Model[x].reviewer_date ago</small>
-            </p>
+                    <div class="row">
+                        @for (int x = count; x < Model.Count; x++)
+                        {
+                            <div class="col-sm-4">
+                                @*<img src="~/assets/images/no-image-available.jpg" />*@
+                                <div class="card">
+                                    <img onerror="this.src='/assets/images/no-image-available.jpg'" class="card-img-top img-fluid" src="@Url.Content("~/" + Model[x].CampImage)" alt="Card image cap" style="height: 300px;">
+                                    <div class="card-body">
+                                        <iframe style="width:100%;height:65px;border:none;margin-left:180px" src="~/assets/RatingStars2/RatingStarshtml.html" __idm_frm__="337"></iframe>
+                                        <h5 class="card-title">@Model[x].reviewer_fname @Model[x].reviewer_lname</h5>
+                                        <p class="card-text">
+                                            @Model[x].reviewer_email
+                                        </p>
+                                        <p class="card-text">
+                                            <small class="text-muted">Last updated @Model[x].reviewer_date ago</small>
+                                        </p>
 
-           @* <a href="@Url.Content("~/assets/SocialMediaButtons/SocialMediaButtons.html")" class="card-link">Share </a>*@
-            
-            <div class="container">
-                <!-- Button to Open the Modal -->
-                <a href="" data-toggle="modal" data-target="#myModal">Share</a>
+                                        @* <a href="@Url.Content("~/assets/SocialMediaButtons/SocialMediaButtons.html")" class="card-link">Share </a>*@
 
-                <!-- The Modal -->
-                <div class="modal" id="myModal">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
+                                    <div class="row">
+                                        <!-- Button to Open the Modal -->
+                                        <a href="" style="margin-left:10px" data-toggle="modal" data-target="#myModal">Share</a>
 
-                            <!-- Modal Header -->
-                            <div class="modal-header">
-                                <h4 class="modal-title">Modal Heading</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <!-- The Modal -->
+                                        <div class="modal" id="myModal">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+
+                                                    <!-- Modal Header -->
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Modal Heading</h4>
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    </div>
+
+                                                    <!-- Modal body -->
+                                                    <div class="modal-body">
+                                                        <a href="#" style="width:65px" class="fa fa-facebook"></a>
+                                                        <a href="#" style="width:65px" class="fa fa-twitter"></a>
+                                                        <a href="#" style="width:65px" class="fa fa-linkedin"></a>
+                                                        <a href="#" style="width:65px" class="fa fa-youtube"></a>
+                                                        <a href="#" style="width:65px" class="fa fa-skype"></a>
+                                                    </div>
+
+                                                    <!-- Modal footer -->
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Button to Open the Modal -->
+                                        <a href="" style="margin-left:10px" data-toggle="modal" data-target="#myModal">View</a>
+
+                                        <!-- The Modal -->
+                                        <div class="modal" id="myModal">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+
+                                                    <!-- Modal Header -->
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Modal Heading</h4>
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    </div>
+
+                                                    <!-- Modal body -->
+                                                    <div class="modal-body">
+
+                                                    </div>
+
+                                                    <!-- Modal footer -->
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <a href="#" style="margin-left:10px" onclick="removeTestimonial(@Model[x].t_id,this);" class="card-link">Delete </a>
+                                    </div>
+
+                                        @*<a href="@Url.Content("~/")" class="card-link">View </a>*@
+                                     
+
+
+                                    </div>
+                                </div>
                             </div>
-
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                                Modal body..
-                            </div>
-
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
+                            count++;
+                        }
                     </div>
-                </div>
-            </div>
-
-            <div class="container">
-                <!-- Button to Open the Modal -->
-                <a href="" data-toggle="modal" data-target="#myModal">View</a>
-
-                <!-- The Modal -->
-                <div class="modal" id="myModal">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-
-                            <!-- Modal Header -->
-                            <div class="modal-header">
-                                <h4 class="modal-title">Modal Heading</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                                Modal body..
-                            </div>
-
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            @*<a href="@Url.Content("~/")" class="card-link">View </a>*@
-            <a href="#" onclick="removeTestimonial(@Model[x].t_id,this);" class="card-link">Delete </a>
-
-            <iframe style="width:100%;border:none" src="~/assets/RatingStars2/RatingStarshtml.html" __idm_frm__="337"></iframe>
-        </div>
-    </div>
-</div>
-count++;
-}
-    </div>
-}
+                }
             }
         </div>
     </div>
@@ -142,7 +273,7 @@ count++;
         var x = confirm("Are You Sure You Want To remove Testimonial.It will remove All related Reviews");
         if (x) {
             $.ajax({
-                url: baseUrl + "/Testimonial/removeTestimonial?id=" + id ,
+                url: baseUrl + "/Testimonial/removeTestimonial?id=" + id,
                 type: "GET",
                 datatype: "JSON",
                 success: function (response) {
