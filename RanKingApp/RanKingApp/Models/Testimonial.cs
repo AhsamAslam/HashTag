@@ -17,6 +17,7 @@ namespace RankMonster.Models
         public float rating { get; set; }
         public string youtube_url { get; set; }
         public string video_testimonial { get; set; }
+        public string video_url { get; set; }
         public string reviewerImage { get; set; }
         public int UserId { get; set; }
         public string campaign_name { get; set; }

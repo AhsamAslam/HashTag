@@ -315,10 +315,71 @@
     <Content Include="assets\libs\toastr\toastr.min.js" />
     <Content Include="assets\libs\x-editable\bootstrap-editable.css" />
     <Content Include="assets\libs\x-editable\bootstrap-editable.min.js" />
+    <Content Include="assets\RatingStars2\RatingStarshtml.html" />
+    <Content Include="assets\RatingStars2\StarRating.css" />
     <Content Include="assets\ratingStars\index.html" />
     <Content Include="assets\ratingStars\off.svg" />
     <Content Include="assets\ratingStars\on.svg" />
     <Content Include="assets\ratingStars\style.css" />
+    <Content Include="assets\SocialMediaButtons\SocialMediaButtons.css" />
+    <Content Include="assets\SocialMediaButtons\SocialMediaButtons.html" />
+    <Content Include="bin\FFMpegSharp.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\RanKingApp.dll" />
+    <Content Include="bin\RanKingApp.pdb" />
+    <Content Include="bin\roslyn\csc.exe" />
+    <Content Include="bin\roslyn\csi.exe" />
+    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="bin\roslyn\System.AppContext.dll" />
+    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
+    <Content Include="bin\roslyn\System.Console.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.StackTrace.dll" />
+    <Content Include="bin\roslyn\System.IO.Compression.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="bin\roslyn\System.IO.Pipes.AccessControl.dll" />
+    <Content Include="bin\roslyn\System.IO.Pipes.dll" />
+    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
+    <Content Include="bin\roslyn\System.Security.AccessControl.dll" />
+    <Content Include="bin\roslyn\System.Security.Claims.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="bin\roslyn\System.Security.Principal.Windows.dll" />
+    <Content Include="bin\roslyn\System.Text.Encoding.CodePages.dll" />
+    <Content Include="bin\roslyn\System.ValueTuple.dll" />
+    <Content Include="bin\roslyn\System.Xml.ReaderWriter.dll" />
+    <Content Include="bin\roslyn\System.Xml.XmlDocument.dll" />
+    <Content Include="bin\roslyn\System.Xml.XPath.dll" />
+    <Content Include="bin\roslyn\System.Xml.XPath.XDocument.dll" />
+    <Content Include="bin\roslyn\vbc.exe" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Helpers.xml" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Mvc.xml" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.Razor.xml" />
+    <Content Include="bin\System.Web.Webpages.Deployment.dll" />
+    <Content Include="bin\System.Web.Webpages.Deployment.xml" />
+    <Content Include="bin\System.Web.Webpages.dll" />
+    <Content Include="bin\System.Web.Webpages.Razor.dll" />
+    <Content Include="bin\System.Web.Webpages.Razor.xml" />
+    <Content Include="bin\System.Web.Webpages.xml" />
+    <Content Include="Bonuses\SocialButtons2\social.html" />
+    <Content Include="Bonuses\SocialButtons2\social.js" />
+    <Content Include="Bonuses\SocialButtons2\style.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -328,6 +389,9 @@
     <Content Include="ffmpeg\ffprobe.exe" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="obj\Debug\RanKingApp.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\RanKingApp.dll" />
+    <Content Include="obj\Debug\RanKingApp.pdb" />
     <Content Include="Scripts\AppScripts.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -385,10 +449,40 @@
     <Content Include="assets\assetsLandingPage\fonts\icofont7858.eot" />
     <Content Include="assets\assetsLandingPage\fonts\icofont7858.ttf" />
     <Content Include="assets\assetsLandingPage\fonts\icofont7858.woff" />
+    <Content Include="bin\RanKingApp.dll.config" />
+    <Content Include="bin\roslyn\csc.exe.config" />
+    <Content Include="bin\roslyn\csc.rsp" />
+    <Content Include="bin\roslyn\csi.exe.config" />
+    <Content Include="bin\roslyn\csi.rsp" />
+    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.Managed.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="bin\roslyn\vbc.exe.config" />
+    <Content Include="bin\roslyn\vbc.rsp" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\RanKingApp.csproj.CopyComplete" />
+    <Content Include="obj\Debug\RanKingApp.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Debug\RanKingApp.csprojAssemblyReference.cache" />
+    <Content Include="obj\Release\RanKingApp.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Release\RanKingApp.csprojAssemblyReference.cache" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="uploads\1\310b2ab3-cc48-4990-a464-5e972c639c29.webm" />
+    <Content Include="uploads\1\91aad0c1-9278-4a9f-bbb4-c448b7db569b.webm" />
+    <Content Include="uploads\1\a7f31e03-9935-499a-8de2-d086152bdd31.mp4" />
+    <Content Include="uploads\1\ad47cee2-4adc-41b1-9f3c-6d68039aa56c.webm" />
+    <Content Include="uploads\1\dcd0c2db-796b-43f1-a4d9-10bfd55d2dd9.mp4" />
+    <Content Include="User_Campaigns\1\1003\c4a29a4f-023b-485e-a1e2-b4c9d3703033.jpg" />
+    <Content Include="User_Campaigns\1\220bec48-2116-40d2-bd05-003b6a45e7df.JPG" />
+    <Content Include="User_Campaigns\1\4af61006-bdfa-46a1-af9f-262f9c9c3af6.jpg" />
+    <Content Include="User_Campaigns\1\4f4ff358-8dd9-451a-84ed-bc06810843a1.jpg" />
+    <Content Include="User_Campaigns\1\6d8f10af-8d3d-4efe-9d74-255880fe606a.jpg" />
+    <Content Include="User_Campaigns\1\8730bb9d-2f5a-4e03-93cf-01d3682d9289.JPG" />
+    <Content Include="User_Campaigns\1\9c97b913-3da8-42e0-93a8-30512ead628e.jpg" />
+    <Content Include="User_Campaigns\1\fdf52217-055c-4073-b0ac-e46b719590f0.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -415,6 +509,9 @@
     <Compile Include="Models\Testimonial.cs" />
     <Compile Include="Models\TestimonialPageModel.cs" />
     <Compile Include="Models\Users.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -449,6 +546,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

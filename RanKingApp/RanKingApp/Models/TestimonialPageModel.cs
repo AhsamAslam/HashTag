@@ -8,4 +8,5 @@ namespace RanKingApp.Models
         public Campaign campaign { get; set; }
         public List<Bonuses> campaignBonuses { get; set; }
     }
+
 }

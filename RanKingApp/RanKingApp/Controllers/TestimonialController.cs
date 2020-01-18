@@ -3,6 +3,8 @@ using RanKingApp.Models;
 using RankMonster.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -10,8 +12,7 @@ namespace RankMonster.Controllers
 {
     public class TestimonialController : Controller
     {
-        //
-        // GET: /Testimonial/
+        [HttpGet]
         public ActionResult Index()
         {
             return View("CreateTestimonial");
@@ -36,28 +37,45 @@ namespace RankMonster.Controllers
             testimonialPageModel.campaign = cmp;
             return View("index", testimonialPageModel);
         }
+        
         public ActionResult UserResponsesVideo()
         {
             return View("UserResponsesVideo");
         }
         public ActionResult SaveTestimonial(string reviewer_fname, string reviewer_lname, string reviewer_email,
             string video_testimonial, string audio_testimonial, string campaign_name, string camp_id
-            , string reviewer_comments, string rating, string userId)
+            , string reviewer_comments, string rating, string userId , string videoBase64Encrypt )
         {
 
+            Directory.CreateDirectory(Server.MapPath("~/Testmonials/ "+ camp_id +""));
             DAL obj = new DAL();
             Testimonial testimonial = new Testimonial();
+            string newName = Guid.NewGuid().ToString();
+            string path = Server.MapPath("~/Testmonials/" + camp_id + "/"+ newName + ".txt");
+            System.IO.File.WriteAllBytes(path, Convert.FromBase64String(videoBase64Encrypt));
+
+            StreamWriter file = new StreamWriter(path);
+            file.Write(path);
+            file.Close();
+            string adress = "/Testmonials/" + camp_id + ".txt";
+            video_testimonial = adress;
+            testimonial.video_testimonial = video_testimonial;
+
             testimonial.campaign_name = campaign_name;
             testimonial.camp_id = Convert.ToInt32(camp_id);
             testimonial.rating = Convert.ToInt32(rating);
             testimonial.reviewer_date = DateTime.Now.ToString();
             testimonial.reviewer_comments = reviewer_comments;
             testimonial.reviewer_email = reviewer_email;
-            testimonial.video_testimonial = HttpUtility.HtmlEncode(video_testimonial);
+            //testimonial.video_testimonial = video_testimonial;
             testimonial.reviewer_fname = reviewer_fname;
             testimonial.reviewer_lname = reviewer_lname;
             testimonial.UserId = Convert.ToInt32(userId);
             obj.SaveTestimonial(testimonial);
+
+
+           
+
             //string newName = Guid.NewGuid().ToString() + ".webm";
             //string file_path = AppDomain.CurrentDomain.BaseDirectory + Path.Combine("uploads\\" + Session["UserId"] + "\\" + newName);
             //string newName_mp4 = Guid.NewGuid().ToString() + ".mp4";
@@ -86,7 +104,7 @@ namespace RankMonster.Controllers
             //ffmpeg.OverwriteOutput = true;
             //ffmpeg.Process(file_path, outFile);
             //ffmpeg.OnProgress += Ffmpeg_OnProgress;
-            return View("ThanksYouPage");
+            return View("ThankYouPage");
         }
 
 
@@ -121,7 +139,7 @@ namespace RankMonster.Controllers
         public ActionResult removeTestimonial(string id)
         {
             DAL dAL = new DAL();
-            int x = dAL.DeleteTestimonial(Convert.ToInt32(id), Session["UserId"].ToString());
+            int x = dAL.DeleteTestimonial(Convert.ToInt32(id));
             if (x > 1)
             {
                 return new JsonResult() { Data = "Success" };
