@@ -375,7 +375,7 @@ F:\HashTag\RanKingApp\RanKingApp\bin\roslyn\vbc.exe.config
 F:\HashTag\RanKingApp\RanKingApp\bin\roslyn\vbc.rsp
 F:\HashTag\RanKingApp\RanKingApp\bin\roslyn\VBCSCompiler.exe
 F:\HashTag\RanKingApp\RanKingApp\bin\roslyn\VBCSCompiler.exe.config
-F:\HashTag\RanKingApp\RanKingApp\obj\Debug\RanKingApp.csprojAssemblyReference.cache
 F:\HashTag\RanKingApp\RanKingApp\obj\Debug\RanKingApp.csproj.CopyComplete
 F:\HashTag\RanKingApp\RanKingApp\obj\Debug\RanKingApp.dll
 F:\HashTag\RanKingApp\RanKingApp\obj\Debug\RanKingApp.pdb
+F:\HashTag\RanKingApp\RanKingApp\obj\Debug\RanKingApp.csprojAssemblyReference.cache

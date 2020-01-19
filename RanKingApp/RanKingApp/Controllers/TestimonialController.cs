@@ -1,4 +1,4 @@
-﻿using FfmpegSharp;
+﻿
 using RanKingApp.Models;
 using RankMonster.Models;
 using System;
@@ -47,10 +47,11 @@ namespace RankMonster.Controllers
             , string reviewer_comments, string rating, string userId , string videoBase64Encrypt )
         {
 
-            Directory.CreateDirectory(Server.MapPath("~/Testmonials/ "+ camp_id +""));
+            Directory.CreateDirectory(Server.MapPath("~/Testmonials/"+ camp_id +""));
             DAL obj = new DAL();
             Testimonial testimonial = new Testimonial();
             string newName = Guid.NewGuid().ToString();
+
             string path = Server.MapPath("~/Testmonials/" + camp_id + "/"+ newName + ".txt");
             System.IO.File.WriteAllBytes(path, Convert.FromBase64String(videoBase64Encrypt));
 
@@ -114,10 +115,7 @@ namespace RankMonster.Controllers
             List<Testimonial> testimonials = obj.GetTestimonialsByUserId(Convert.ToInt32(Session["UserId"].ToString()));
             return View("ViewTestimonial", testimonials);
         }
-        private void Ffmpeg_OnProgress(object sender, ProgressEventArgs e)
-        {
-
-        }
+     
 
         public ActionResult VideoTestimonialReport()
         {
