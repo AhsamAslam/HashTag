@@ -43,6 +43,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FFmpeg, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EmergenceGuardian.FFmpeg.1.1.3\lib\netstandard2.0\FFmpeg.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="FFMpegSharp, Version=1.0.0.28049, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\FFMpegSharp.dll</HintPath>
@@ -537,7 +541,6 @@
     <Content Include="Views\Testimonial\index.cshtml" />
     <Content Include="Views\Testimonial\ThankYouPage.cshtml" />
     <Content Include="Views\Testimonial\ViewTestimonial.cshtml" />
-    <Content Include="Views\Testimonial\ThanksYouPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -548,6 +551,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FFmpegLiabrary\FFmpegLiabrary.csproj">
+      <Project>{fb2cfd40-8789-49f8-8dd4-fd8fef1c1268}</Project>
+      <Name>FFmpegLiabrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

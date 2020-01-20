@@ -464,7 +464,7 @@
                         console.log(mediaRecorder.state);
                     })
                     stop.addEventListener('click', (ev) => {
-                        debugger;
+                       
                         try {
                             mediaRecorder.stop();
                         } catch (stopException){
@@ -488,7 +488,7 @@
                 var reader = new FileReader();
                 reader.readAsDataURL(blob);
                 reader.onloadend = function () {
-                    debugger;
+                   
                     var base64data = reader.result;
                     var encryptedBase64 = encodeURIComponent(base64data);
                     document.getElementById('video_url').value = encryptedBase64;
