@@ -327,6 +327,7 @@
     <Content Include="assets\ratingStars\style.css" />
     <Content Include="assets\SocialMediaButtons\SocialMediaButtons.css" />
     <Content Include="assets\SocialMediaButtons\SocialMediaButtons.html" />
+    <Content Include="assets\Video\Background Video Templates.mp4" />
     <Content Include="bin\FFMpegSharp.dll" />
     <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
     <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
