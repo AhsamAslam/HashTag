@@ -1,5 +1,4 @@
-﻿using FfmpegSharp;
-using RanKingApp.Models;
+﻿using RanKingApp.Models;
 using RankMonster.Models;
 using System;
 using System.Collections.Generic;
@@ -114,11 +113,6 @@ namespace RankMonster.Controllers
             List<Testimonial> testimonials = obj.GetTestimonialsByUserId(Convert.ToInt32(Session["UserId"].ToString()));
             return View("ViewTestimonial", testimonials);
         }
-        private void Ffmpeg_OnProgress(object sender, ProgressEventArgs e)
-        {
-
-        }
-
         public ActionResult VideoTestimonialReport()
         {
             if (Session["UserId"] != null && Session["email"] != null)
