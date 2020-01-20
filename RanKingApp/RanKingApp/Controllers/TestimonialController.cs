@@ -37,27 +37,31 @@ namespace RankMonster.Controllers
             testimonialPageModel.campaign = cmp;
             return View("index", testimonialPageModel);
         }
-        
+
         public ActionResult UserResponsesVideo()
         {
             return View("UserResponsesVideo");
         }
         public ActionResult SaveTestimonial(string reviewer_fname, string reviewer_lname, string reviewer_email,
             string video_testimonial, string audio_testimonial, string campaign_name, string camp_id
-            , string reviewer_comments, string rating, string userId , string videoBase64Encrypt )
+            , string reviewer_comments, string rating, string userId, string videoBase64Encrypt)
         {
 
-            Directory.CreateDirectory(Server.MapPath("~/Testmonials/ "+ camp_id +""));
+            Directory.CreateDirectory(Server.MapPath("~/Testmonials/" + camp_id + ""));
             DAL obj = new DAL();
             Testimonial testimonial = new Testimonial();
             string newName = Guid.NewGuid().ToString();
-            string path = Server.MapPath("~/Testmonials/" + camp_id + "/"+ newName + ".txt");
-            System.IO.File.WriteAllBytes(path, Convert.FromBase64String(videoBase64Encrypt));
+            string path = Server.MapPath("~/Testmonials/" + camp_id + "/" + newName + ".webm");
+            string decodedBase64 = Uri.UnescapeDataString(videoBase64Encrypt);
+            decodedBase64 = decodedBase64.Split(',')[1];
+          
+            System.IO.File.WriteAllBytes(path, Convert.FromBase64String(decodedBase64));
 
-            StreamWriter file = new StreamWriter(path);
-            file.Write(path);
-            file.Close();
-            string adress = "/Testmonials/" + camp_id + ".txt";
+            string query = string.Format("-i {0} -c:v libx264 -preset faster -c:a aac -strict experimental {1}", Server.MapPath("~/Testmonials/" + camp_id + "/" + newName + ".webm"), Server.MapPath("~/Testmonials/" + camp_id + "/" + newName + ".mp4"));
+            string status = FFmpegLiabrary.CallFfmpeg.CallProcess(System.Web.HttpContext.Current.Server.MapPath("~/ffmpeg/ffmpeg.exe"), query);
+            //StreamWriter file = new StreamWriter(path);
+            
+            string adress = "/Testmonials/" + camp_id + ".mp4";
             video_testimonial = adress;
             testimonial.video_testimonial = video_testimonial;
 
@@ -74,7 +78,7 @@ namespace RankMonster.Controllers
             obj.SaveTestimonial(testimonial);
 
 
-           
+
 
             //string newName = Guid.NewGuid().ToString() + ".webm";
             //string file_path = AppDomain.CurrentDomain.BaseDirectory + Path.Combine("uploads\\" + Session["UserId"] + "\\" + newName);
