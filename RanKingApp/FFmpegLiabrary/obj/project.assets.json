@@ -207,11 +207,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Unionlogics\\HashTag\\RanKingApp\\FFmpegLiabrary\\FFmpegLiabrary.csproj",
+      "projectUniqueName": "E:\\backup\\HashTag\\RanKingApp\\FFmpegLiabrary\\FFmpegLiabrary.csproj",
       "projectName": "FFmpegLiabrary",
-      "projectPath": "E:\\Unionlogics\\HashTag\\RanKingApp\\FFmpegLiabrary\\FFmpegLiabrary.csproj",
+      "projectPath": "E:\\backup\\HashTag\\RanKingApp\\FFmpegLiabrary\\FFmpegLiabrary.csproj",
       "packagesPath": "C:\\Users\\shahz\\.nuget\\packages\\",
-      "outputPath": "E:\\Unionlogics\\HashTag\\RanKingApp\\FFmpegLiabrary\\obj\\",
+      "outputPath": "E:\\backup\\HashTag\\RanKingApp\\FFmpegLiabrary\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

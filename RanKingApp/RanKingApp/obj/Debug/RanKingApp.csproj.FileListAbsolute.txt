@@ -379,3 +379,7 @@ F:\HashTag\RanKingApp\RanKingApp\obj\Debug\RanKingApp.csprojAssemblyReference.ca
 F:\HashTag\RanKingApp\RanKingApp\obj\Debug\RanKingApp.csproj.CopyComplete
 F:\HashTag\RanKingApp\RanKingApp\obj\Debug\RanKingApp.dll
 F:\HashTag\RanKingApp\RanKingApp\obj\Debug\RanKingApp.pdb
+E:\Unionlogics\HashTag\RanKingApp\RanKingApp\obj\Debug\RanKingApp.csprojAssemblyReference.cache
+E:\Unionlogics\HashTag\RanKingApp\RanKingApp\obj\Debug\RanKingApp.csproj.CoreCompileInputs.cache
+E:\Unionlogics\HashTag\RanKingApp\RanKingApp\obj\Debug\RanKingApp.dll
+E:\Unionlogics\HashTag\RanKingApp\RanKingApp\obj\Debug\RanKingApp.pdb
